@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.router = void 0;
+var express_1 = require("express");
+var ImageValidation_1 = require("../../middlewares/ImageValidation");
+var ImageSearch_1 = require("../../middlewares/ImageSearch");
+var NootImageProcessing_1 = require("../../services/NootImageProcessing");
+exports.router = (0, express_1.Router)();
+exports.router.get('/', ImageValidation_1.validateQueryParameters, ImageSearch_1.searchForImage, NootImageProcessing_1.resizeImage);
+exports.default = express_1.Router;
